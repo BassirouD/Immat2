@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="monvert">
+        <ion-title>
+            Documents
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon name="notifications-outline" class="ionSizeNotif"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="goToSettings()">
+                <ion-icon name="cog-outline" class="ionSizeSetting" slot="end"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-searchbar placeholder="Cherchez un document"></ion-searchbar>
+
+    <!-- Segment buttons with text and click listener -->
+    <ion-segment [formControl]="activeSegment" (ionChange)="segmentChanged($event)" value="signer" color="monvert">
+        <ion-segment-button value="signer" [ngClass]="{'monvert': activeSegment === 'signer'}">
+            <ion-label>A signer</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="consulter">
+            <ion-label>A consulter</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <ion-list lines="none" *ngFor="let signer of signers">
+        <div *ngIf="activeSegment.value === 'signer'">
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="">
+                </ion-avatar>
+                <ion-label>
+                    <h4>{{signer.name}}</h4>
+                    <p>{{signer.proprietaire}}</p>
+                </ion-label>
+                <ion-buttons slot="end">
+                    <ion-button color="medium">
+                        <ion-icon slot="icon-only" md="ellipsis-vertical-outline" ios="ellipsis-horizontal-outline"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+        </div>
+    </ion-list>
+
+    <ion-list lines="none" *ngFor="let consulter of consulters">
+        <div *ngIf="activeSegment.value === 'consulter'">
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="">
+                </ion-avatar>
+                <ion-label>
+                    <h4>{{consulter.name}}</h4>
+                    <p>{{consulter.proprietaire}}</p>
+                </ion-label>
+                <ion-buttons slot="end">
+                    <ion-button color="medium">
+                        <ion-icon slot="icon-only" md="ellipsis-vertical-outline" ios="ellipsis-horizontal-outline"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+        </div>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar color="monvert">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Parametres</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-list>
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="/assets/images/voiture.png">
+                </ion-avatar>
+                <ion-label>
+                    <h1>Immatriculation</h1>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <div>
+        <ion-list>
+            <h2 class="cTitleLangue">Choisir une langue</h2>
+            <ion-item>
+                <ion-label>Langues</ion-label>
+                <ion-select interface="popover">
+                    <ion-select-option value="nes">Anglais</ion-select-option>
+                    <ion-select-option value="n64">Francais</ion-select-option>
+                    <ion-select-option value="ps">Espagnol</ion-select-option>
+                    <ion-select-option value="genesis">Portiguais</ion-select-option>
+                    <ion-select-option value="saturn">Arabe</ion-select-option>
+                    <ion-select-option value="snes">Chinois</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="cDernier">
+        <h2 class="cTitleTheme">Choisir un theme</h2>
+        <div class="haut">
+                <ion-slides [options]="catSlideOpts">
+                    <ion-slide>
+                        <ion-card class="p1" color="primary"></ion-card>
+                        <ion-card class="p1" color="secondary"></ion-card>
+                        <ion-card class="p1" color="monvert"></ion-card>
+                        <ion-card class="p1" color="monvertclair"></ion-card>
+                        <ion-card class="p1" color="primary"></ion-card>
+                    </ion-slide>
+                </ion-slides>
+        </div>
+        <div class="cButton">
+            <ion-button expand="block" color="monvert">Enregistrer</ion-button>
+        </div>
+    </div>
+
+</ion-content>

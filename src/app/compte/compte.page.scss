@@ -1,0 +1,84 @@
+.ionSizeSetting{
+  height: 23px;
+  width: 23px;
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+.ionSizeNotif{
+  height: 20px;
+  width: 20px;
+  margin-top: 12px;
+}
+
+.ionTitleGauche{
+  float: left;
+}
+
+.cName{
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+/* DOES NOT WORK - not specific enough */
+.alert-wrapper {
+  background: #e5e5e5;
+}
+
+/* Works - pass "my-custom-class" in cssClass to increase specificity */
+.my-custom-class .alert-wrapper {
+  background: #e5e5e5;
+}
+
+ion-badge{
+  height: 25px;
+  text-align: center;
+}
+
+ion-avatar{
+  width: 80px;
+  height: 70px;
+}
+
+ion-icon{
+  margin-left: 60px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.cDCenter{
+  margin-left: 100px;
+}
+
+.cDCenterA{
+  margin-left: 50px;
+  margin-right: 65px;
+}
+
+.cChoose{
+  margin-left: 120px;
+  margin-top: 10px;
+}
+//
+//.cDCenterV{
+//  margin-left: 200px;
+//}
+
+.cDivButtons{
+  margin-left: 20px;
+}
+
+.cIcone{
+  margin-bottom: 20px;
+  margin-top: 50px;
+  background-color: #f4f5f8;
+  border-radius: 5px;
+}
+
+.cAvatar{
+  position: relative;
+}
+
+.cImage{
+  position: absolute;
+}

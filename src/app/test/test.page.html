@@ -1,0 +1,58 @@
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title>Modal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen class="ion-padding">
+    <ion-button expand="block">Show Modal</ion-button>
+  </ion-content>
+</ion-app>
+
+
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Modal Content</ion-title>
+    <ion-buttons slot="end">
+      <ion-button onclick="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src=""/>
+      </ion-avatar>
+      <ion-label>
+        <h2>Gollum</h2>
+        <p>Sneaky little hobbitses!</p>
+          <ion-button (click)="presentConfirm()">
+              Confirm
+          </ion-button>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src=""/>
+      </ion-avatar>
+      <ion-label>
+        <h2>Frodo</h2>
+        <p>Go back, Sam! I'm going to Mordor alone!</p>
+          <ion-button (click)="presentAlert()">
+              Alert
+          </ion-button>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src=""/>
+      </ion-avatar>
+      <ion-label>
+        <h2>Samwise</h2>
+        <p>What we need is a few good taters.</p>
+          <ion-button (click)="presentPrompt()">Promt</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

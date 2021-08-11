@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="monvert">
+        <ion-title *ngIf="mode == 'normal'">
+            Compte
+        </ion-title>
+        <ion-buttons slot="end" *ngIf="mode == 'normal'">
+            <ion-button>
+                <ion-icon name="notifications-outline" class="ionSizeNotif"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" *ngIf="mode == 'normal'">
+            <ion-button (click)="goToSettings()">
+                <ion-icon name="cog-outline" class="ionSizeSetting" slot="end"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+<!--        <ion-buttons slot="start" *ngIf="mode == 'changeProfil'">-->
+<!--            <ion-button text="" icon="add">Hi</ion-button>-->
+<!--        </ion-buttons>-->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!--    <ion-button fill="outline" color="monvert" (click)="logout()">Log out</ion-button>-->
+    <div *ngIf="mode == 'normal'">
+        <ion-searchbar placeholder="Cherchez un document"></ion-searchbar>
+        <div>
+            <ion-card-header><h2>Informations <br>personnelles</h2></ion-card-header>
+            <ion-card-content>
+                <ion-avatar class="cAvatar" (click)="onEditProfile()">
+                    <img class="cImage" src="/assets/images/lion.png">
+                    <ion-icon class="cIcone" name="camera-outline"></ion-icon>
+                </ion-avatar>
+                <ion-grid>
+                    <ion-row class="cName">
+                        <ion-col>
+                            <div><h2>{{monNom}}</h2></div>
+                        </ion-col>
+                        <ion-col>
+                            <ion-buttons>
+                                <span (click)="onEdit(userT)">
+                                    <div><ion-icon color="monvert" name="pencil-sharp"></ion-icon></div>
+                                </span>
+                            </ion-buttons>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-slides [options]="catSlideOpts">
+                            <ion-slide>
+                                <ion-col><ion-badge color="light">{{monMail}}</ion-badge></ion-col>
+                                <ion-col><ion-badge color="light">{{monTel}}</ion-badge></ion-col>
+                                <ion-col><ion-badge color="light">{{monService}}</ion-badge></ion-col>
+                                <ion-col><ion-badge color="light">{{maFonction}}</ion-badge></ion-col>
+                            </ion-slide>
+                        </ion-slides>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </div>
+    </div>
+
+    <div *ngIf="mode == 'changeProfil'">
+        <form (ngSubmit)="onSaveProfil()">
+            <ion-card>
+                <ion-card-header style="text-align: center"><h2>Modifier profil</h2></ion-card-header>
+                <ion-card-content>
+                    <ion-item lines="none" class="cDCenter">
+                        <ion-avatar (click)="onChangeProfile()">
+                            <img src="/assets/images/lion.png">
+                            <ion-icon name="camera-outline"></ion-icon>
+                        </ion-avatar>
+                    </ion-item>
+                    <p (click)="onChangeProfile()" class="cChoose"><b>Modifier photo</b></p>
+                    <input type="file" placeholder="Sélectionnez un ou des fichiers" #file1 hidden
+                           (change)="addFilesAdded1()" />
+                    <br>
+                    <div class="cDivButtons">
+                        <ion-button class="cDCenterA" size="small" color="monvert" (click)="onRetour()">Annuler</ion-button>
+                        <ion-button class="cDCenterV" size="small" color="monvert" type="submit">Valider</ion-button>
+                    </div>
+                    </ion-card-content>
+            </ion-card>
+        </form>
+    </div>
+    <ion-button (click)="onLogout()">Logout</ion-button>
+</ion-content>

@@ -1,0 +1,99 @@
+.suivant{
+    margin-top: 25px;
+  text-align: center;
+  width: 160px;
+    margin-right: 20px;
+}
+
+.precedent{
+    margin-top: 20px;
+  text-align: center;
+  width: 160px;
+  margin-left: 15px;
+}
+
+.memeTaille{
+  width: 500px;
+  height: 100px;
+  text-align: center;
+}
+
+.cprogress{
+  margin-top: 20px;
+}
+
+.cdiv{
+  margin-top: 20px;
+    margin-left: 3px;
+}
+
+.cBouton{
+  margin-top: 20px;
+}
+
+.cN{
+  margin-left: 360px;
+  color: #2fdf75;
+  margin-bottom: 5px;
+}
+
+.cTitle{
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+.cInput{
+  border-radius: 10px 40px 40px 10px;
+}
+
+ion-input{
+  border: solid 1px;
+}
+
+.cInputWei{
+  width: 100%;
+  height: 100%;
+}
+
+input{
+  width: 373px;
+}
+
+mat-form-field{
+  width: 373px;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.1em) scale(.75);
+  width: 133.33333%;
+}
+
+.cBBlock{
+  margin-top: 20px;
+  margin-left: 18px;
+  margin-right: 20px;
+}
+
+.file_upload{
+  width: 350px;
+  height: 70px;
+  border: solid 1px;
+  margin-top: 10px;
+  margin-left: 12px;
+
+  border-color:lightgray;
+  background-color: white;
+  color: gray;
+  word-break: break-all;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cIon-Segmenent{
+  margin-left: 20px;
+  margin-right: 20px;
+}

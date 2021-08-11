@@ -1,0 +1,354 @@
+<ion-header>
+    <ion-toolbar color="monvert">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Formulaire de demande</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <h1 style="margin-left: 10px" class="cTitle" *ngIf="progress === 0.17 || progress === 0.16999999999999996">Informations <br>personnelles</h1>
+    <h1 style="margin-left: 10px" class="cTitle" *ngIf="progress > 0.17">Informations <br> du véhicule</h1>
+    <div class="cprogress">
+        <p class="cN">{{n}}/6</p>
+        <ion-progress-bar color="monvertclair" [value]="progress"></ion-progress-bar>
+    </div>
+
+    <div *ngIf="demandeFormGroup">
+
+        <form [formGroup]="demandeFormGroup">
+            <div *ngIf="progress <= 0.17" class="cdiv">
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Prenom</mat-label>
+                        <input matInput formControlName="prenom" type="text" class="cInputWei">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nom</mat-label>
+                        <input matInput formControlName="nom" type="text" class="cInputWei">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Adresse</mat-label>
+                        <input matInput formControlName="adresse" type="text" class="cInputWei">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Telephone</mat-label>
+                        <input matInput formControlName="telephone" type="text" class="cInputWei">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sexe</mat-label>
+                        <mat-select formControlName="sexe">
+                            <mat-option value="masculin">Masculin</mat-option>
+                            <mat-option value="feminin">Feminin</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </ion-item>
+            </div>
+
+            <div *ngIf="progress == 0.33399999999999996 || progress == 0.334" class="cdiv">
+                <div class="cIon-Segmenent">
+                    <ion-segment formControlName="typedemande" [formControl]="activeSegment" (ionChange)="segmentChanged($event)" value="neuf" color="monvert">
+                        <ion-segment-button value="neuf" [ngClass]="{'monvert': activeSegment === 'neuf'}">
+                            <ion-label>Vehicule neuf</ion-label>
+                        </ion-segment-button>
+                        <ion-segment-button value="cession">
+                            <ion-label>En cession</ion-label>
+                        </ion-segment-button>
+                    </ion-segment>
+                </div>
+                <br>
+                <div *ngIf="activeSegment.value === 'neuf'">
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Marque</mat-label>
+                            <input matInput type="text" class="cInputWei" formControlName="marque">
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Puissance</mat-label>
+                            <input matInput type="text" class="cInputWei" formControlName="puissance">
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Energie</mat-label>
+                            <mat-select formControlName="energie">
+                                <mat-option value="electrique">Electrique</mat-option>
+                                <mat-option value="essence">Essence</mat-option>
+                                <mat-option value="gaz">Gaz</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Emission CO2</mat-label>
+                            <input matInput type="text" class="cInputWei" formControlName="emissionco2">
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Type usage</mat-label>
+                            <mat-select formControlName="typeusage">
+                                <mat-option value="particulier">Particulier</mat-option>
+                                <mat-option value="transportEnCommun">En commun</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </ion-item>
+                </div>
+                <div *ngIf="activeSegment.value === 'cession'">
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Numero</mat-label>
+                            <input matInput type="text" class="cInputWei" formControlName="marque">
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Marque</mat-label>
+                            <input matInput type="text" class="cInputWei" formControlName="marque">
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Puissance</mat-label>
+                            <input matInput type="text" class="cInputWei" formControlName="puissance">
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Energie</mat-label>
+                            <mat-select formControlName="energie">
+                                <mat-option value="electrique">Electrique</mat-option>
+                                <mat-option value="essence">Essence</mat-option>
+                                <mat-option value="gaz">Gaz</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Emission CO2</mat-label>
+                            <input matInput type="text" class="cInputWei" formControlName="emissionco2">
+                        </mat-form-field>
+                    </ion-item>
+                </div>
+
+            </div>
+
+            <div *ngIf="progress == 0.498" class="cdiv">
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Couleur</mat-label>
+                        <input matInput type="text" class="cInputWei" formControlName="couleur">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Type variante</mat-label>
+                        <input matInput type="text" class="cInputWei" formControlName="typevarianteversion">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Genre vehicule</mat-label>
+                        <mat-select formControlName="genrevehicule">
+                            <mat-option value="voiture">Voiture</mat-option>
+                            <mat-option value="camion">Camion</mat-option>
+                            <mat-option value="bus">Bus</mat-option>
+                            <mat-option value="moto">Moto</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Carosserie</mat-label>
+                        <mat-select formControlName="carosserie">
+                            <mat-option value="berline">Berline</mat-option>
+                            <mat-option value="break">Break</mat-option>
+                            <mat-option value="monospace">Monospace</mat-option>
+                            <mat-option value="coupe">Coupe</mat-option>
+                            <mat-option value="cabriolet">Cabriolet</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date mise en circulation</mat-label>
+                        <input matInput formControlName="datemiseencirculation" type="date" class="cInputWei">
+                    </mat-form-field>
+                </ion-item>
+            </div>
+
+            <div *ngIf="progress == 0.662" class="cdiv">
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Longeur</mat-label>
+                        <input matInput type="text" class="cInputWei" formControlName="longeur">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Largeur</mat-label>
+                        <input matInput type="text" class="cInputWei" formControlName="largeur">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Place debout</mat-label>
+                        <input matInput type="text" class="cInputWei" formControlName="placesdebout">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Place assises</mat-label>
+                        <input matInput type="text" class="cInputWei" formControlName="placesassises">
+                    </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field appearance="fill">
+                        <mat-label>N° Immatriculation</mat-label>
+                        <input matInput type="text" class="cInputWei" formControlName="numeroimmat">
+                    </mat-form-field>
+                </ion-item>
+            </div>
+
+            <div *ngIf="progress == 0.8260000000000001" class="cdiv">
+
+                <input type="file" placeholder="Sélectionnez un ou des fichiers" #file1 style="display: none"
+                       (change)="addFilesAdded1()" />
+                <input type="file" placeholder="Sélectionnez un ou des fichiers" #file2 hidden
+                       (change)="addFilesAdded2()" />
+                <input type="file" placeholder="Sélectionnez un ou des fichiers" #file3 hidden
+                       (change)="addFilesAdded3()" />
+                <input type="file" placeholder="Sélectionnez un ou des fichiers" #file4 hidden
+                       (change)="addFilesAdded4()" />
+                <input type="file" placeholder="Sélectionnez un ou des fichiers" #file5 hidden
+                       (change)="addFilesAdded5()" />
+
+                <div class="container-fluid col-sm-6">
+                    <div class="file_upload">
+                        <div class="container-fluid file_name" (click)="addFile1()">
+                            <br>
+                            Copie conforme de la CIN
+                        </div>
+                        <p *ngIf="ffile1">{{ffile1.name}}</p>
+                    </div>
+                </div>
+                <br>
+                <div class="container-fluid col-sm-6" (click)="addFile2()">
+                    <div class="file_upload">
+                        <div class="container-fluid file_name">
+                            <br>
+                            Assurance de validite de 3mois
+                        </div>
+                        <p *ngIf="ffile2">{{ffile2.name}}</p>
+                    </div>
+                </div>
+                <br>
+                <div class="container-fluid col-sm-6" (click)="addFile3()">
+                    <div class="file_upload">
+                        <div class="container-fluid file_name">
+                            <br>
+                            Certificat de mise en circulation
+                        </div>
+                        <p *ngIf="ffile3">{{ffile3.name}}</p>
+                    </div>
+                </div>
+                <br>
+
+                <div class="container-fluid col-sm-6" (click)="addFile4()">
+                    <div class="file_upload">
+                        <div class="container-fluid file_name">
+                            <br>
+                            Certificat de vente
+                        </div>
+                        <p *ngIf="ffile4">{{ffile4.name}}</p>
+                    </div>
+                </div>
+                <!--                <ion-item lines="none">-->
+                <!--                    <ion-button (click)="addFile1()" class="memeTaille" expand="block" fill="outline" size="large">Copie conforme de la CIN</ion-button>-->
+                <!--                </ion-item>-->
+                <!--                <ion-item lines="none">-->
+                <!--                    <ion-button class="memeTaille" expand="block" fill="outline" size="large">Acte de vente</ion-button>-->
+                <!--                </ion-item>-->
+                <!--                <ion-item lines="none">-->
+                <!--                    <ion-button class="memeTaille" expand="block" fill="outline" size="large">Demande manuscrite</ion-button>-->
+                <!--                </ion-item>-->
+<!--                <ion-item lines="none">-->
+<!--                    <ion-button class="memeTaille" expand="block" fill="outline" size="large">Attestation de conformité</ion-button>-->
+<!--                </ion-item>-->
+            </div>
+
+            <div *ngIf="progress == 0.9900000000000001" class="cdiv">
+
+                <div class="container-fluid col-sm-6" (click)="addFile5()">
+                    <div class="file_upload">
+                        <div class="container-fluid file_name">
+                            <br>
+                            Certificat de vente
+                        </div>
+                        <p *ngIf="ffile5">{{ffile5.name}}</p>
+                    </div>
+                </div>
+
+<!--                <ion-item lines="none">-->
+<!--                    <ion-button class="memeTaille" expand="block" fill="outline" size="large">Assurance de validite de 3mois</ion-button>-->
+<!--                </ion-item>-->
+<!--                <ion-item lines="none">-->
+<!--                    <ion-button class="memeTaille" expand="block" fill="outline" size="large">Certificat de mise en circulation</ion-button>-->
+<!--                </ion-item>-->
+<!--                <ion-item lines="none">-->
+<!--                    <ion-button class="memeTaille" expand="block" fill="outline" size="large">Registre de commerce</ion-button>-->
+<!--                </ion-item>-->
+<!--                <ion-item lines="none">-->
+<!--                    <ion-button class="memeTaille" expand="block" fill="outline" size="large">Agrement pour les VP</ion-button>-->
+<!--                </ion-item>-->
+            </div>
+
+<!--            <div class="cBBlock">-->
+<!--                <ion-button class="cBouton" (click)="suivant()" *ngIf="progress == 0.17 || progress == 0.16999999999999996" color="monvert" expand="block">Suivant</ion-button>-->
+<!--            </div>-->
+<!--            <ion-grid>-->
+<!--                <ion-row>-->
+<!--                    <ion-col>-->
+<!--                        <ion-button class="precedent cBouton" *ngIf="progress >= 0.333" fill="outline" color="monvert" (click)="precedent()">Precedent</ion-button>-->
+<!--                    </ion-col>-->
+<!--                    <ion-col>-->
+<!--                        <ion-button class="suivant cBouton" *ngIf="progress >= 0.333 && progress < 0.662" color="monvert" (click)="suivant()">Suivant</ion-button>-->
+<!--                        <ion-button class="suivant cBouton" *ngIf="progress == 0.662" color="monvert" (click)="onSaveDemande()">Suivant</ion-button>-->
+<!--                    </ion-col>-->
+<!--                </ion-row>-->
+<!--            </ion-grid>-->
+
+            <ion-button class="cBBlock" (click)="suivant()" *ngIf="progress <= 0.17" color="monvert" expand="block">Suivant</ion-button>
+
+<!--            <ion-grid>-->
+                <ion-row>
+                    <ion-col>
+                        <ion-button class="precedent cBouton" *ngIf="progress >= 0.333" fill="outline" color="monvert" (click)="precedent()">Precedent</ion-button>
+                    </ion-col>
+<!--                    <ion-col>-->
+<!--                        <ion-button class="suivant cBouton" *ngIf="progress >= 0.333 && progress < 0.9900000000000001" color="monvert" (click)="suivant()">Suivant</ion-button>-->
+<!--                        <ion-button class="suivant cBouton" *ngIf="progress == 0.9900000000000001" color="monvert" (ngSubmit)="onSaveDemande()">Suivant</ion-button>-->
+                        <ion-button class="suivant" *ngIf="progress >= 0.333 && progress < 0.8260000000000001" color="monvert" (click)="suivant()">Suivant</ion-button>
+                        <ion-button class="suivant" *ngIf="progress == 0.8260000000000001" color="monvert" (click)="onSaveDemande()">Suivant</ion-button>
+<!--                    </ion-col>-->
+                </ion-row>
+<!--            </ion-grid>-->
+
+        </form>
+    </div>
+
+
+</ion-content>

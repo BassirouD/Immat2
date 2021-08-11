@@ -1,0 +1,8 @@
+{
+  "name": "Immat",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar color="monvert">
+        <ion-title>Page de detail</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">
+                Fermer
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="demandeFormGroup">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+    <div>
+        <form [formGroup]="demandeFormGroup">
+            <ion-card>
+                <div class="cBasDiv">
+                    <ion-list lines="none">
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nom</mat-label>
+                                <input matInput type="text" formControlName="nom" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Marque</mat-label>
+                                <input matInput type="text" formControlName="marque" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Puissance</mat-label>
+                                <input matInput type="text" formControlName="puissance" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Type usage</mat-label>
+                                <input matInput type="text" formControlName="typeusage" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-card>
+        </form>
+    </div>
+</ion-content>

@@ -1,0 +1,102 @@
+
+<ion-content [fullscreen]="true" class="auth-page">
+
+    <div>
+        <div class="element-center">
+<!--            <ion-grid>-->
+<!--                <ion-row>-->
+                    <ion-col>
+                        <h1 class="ion-text-center cHTitle text-white">Accéder à votre compte</h1>
+
+                        <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="onLogin(f.value)">
+                            <div class="cBLarge">
+                                <div class="cWhite cBass">
+                                    <br>
+                                    <div color="light" class="input-group">
+                                        <ion-item lines="none">
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>Email</mat-label>
+                                                <input matInput formControlName="username" type="text" class="cInputWei">
+                                            </mat-form-field>
+                                        </ion-item>
+                                        <ion-item lines="none">
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>Mot de passe</mat-label>
+                                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                                                <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </span>
+                                            </mat-form-field>
+                                        </ion-item>
+                                    </div>
+                                    <div routerLink="/forgot" class="text-dark cBasButton1">
+                                        <div expand="block">Mot de passe oublié?</div>
+                                    </div>
+
+                                    <div class="cBasButton2">
+                                        <ion-button color="monvert" expand="block" class="ion-margin-start ion-margin-end ion-margin-bottom" type="submit">
+                                            Acceder à votre compte
+                                        </ion-button>
+                                    </div>
+                                    <br>
+                                </div>
+
+                                <!--            <span class="ion-margin"></span>-->
+                                <!--            <ion-text>or</ion-text>-->
+                                <!--            <span class="ion-margin"></span>-->
+                                <!--            <ion-button color="monvert" expand="block" class="ion-margin" [routerLink]="[ '/auth', 'register' ]"-->
+                                <!--                        routerDirection="forward">-->
+                                <!--              Sign Up-->
+                                <!--            </ion-button>-->
+                            </div>
+                        </form>
+                    </ion-col>
+<!--                </ion-row>-->
+<!--            </ion-grid>-->
+        </div>
+    </div>
+
+</ion-content>
+
+<!--<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">-->
+<!--    <path fill="#24A148" d="M67.2,-27.1C73.4,-2.7,55.3,24.3,34.1,37.5C12.9,50.6,-11.5,50,-33.4,36.3C-55.4,22.6,-75,-4,-69,-28.1C-63,-52.2,-31.5,-73.7,-0.5,-73.5C30.5,-73.3,60.9,-51.5,67.2,-27.1Z" transform="translate(100 100)" />-->
+<!--</svg>-->
+
+<!--<ion-header class="ion-no-border">-->
+<!--    <ion-toolbar>-->
+<!--        <div class="back-circle"></div>-->
+<!--        <ion-title class="ion-text-center custom-font">Sign Up</ion-title>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content fullscreen="true">-->
+
+<!--    <svg class="back-blod" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <path fill="#24A148" d="M67.2,-27.1C73.4,-2.7,55.3,24.3,34.1,37.5C12.9,50.6,-11.5,50,-33.4,36.3C-55.4,22.6,-75,-4,-69,-28.1C-63,-52.2,-31.5,-73.7,-0.5,-73.5C30.5,-73.3,60.9,-51.5,67.2,-27.1Z" transform="translate(100 100)" />-->
+<!--    </svg>-->
+
+<!--    <div class="ion-padding">-->
+
+<!--        <form class="ion-padding">-->
+<!--            <div class="wrap-input">-->
+<!--                <input class="input" type="text" name="user-email" placeholder="Email">-->
+<!--            </div>-->
+<!--            <div class="wrap-input">-->
+<!--                <input class="input" type="password" name="password" placeholder="Password">-->
+<!--            </div>-->
+<!--            <div class="container-form-btn">-->
+<!--                <ion-button class="form-btn custom-font">Submit</ion-button>-->
+<!--            </div>-->
+<!--        </form>-->
+
+<!--    </div>-->
+
+<!--</ion-content>-->
+
+<!--<ion-footer class="ion-no-border">-->
+<!--    <ion-toolbar>-->
+<!--        <p class="ion-text-center custom-font">Already have an account?-->
+<!--            <a href="">Sign In</a>-->
+<!--        </p>-->
+<!--    </ion-toolbar>-->
+<!--</ion-footer>-->

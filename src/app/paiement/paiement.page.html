@@ -1,0 +1,309 @@
+<ion-header>
+    <ion-toolbar color="monvert">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/historique"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Paiement des frais</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="cDivEnBas" *ngIf="mode == 'normal'">
+        <h2 class="cDivTitle">Paiement des frais pour votre plaque</h2>
+        <ion-slides>
+            <ion-slide>
+                <ion-card (click)="onCartePaiement()">
+                    <ion-card-content>
+                        <ion-icon name="card-outline"></ion-icon>
+                        VisaCard
+                    </ion-card-content>
+                </ion-card>
+                <ion-card (click)="onPaypalPaiement()">
+                    <ion-card-content>
+                        <ion-icon name="logo-paypal"></ion-icon>
+                        Paypal
+                    </ion-card-content>
+                </ion-card>
+                <ion-card (click)="onOrbusPaiement()">
+                    <ion-card-content>
+                        <ion-icon name="card-outline"></ion-icon>
+                        Orbus
+                    </ion-card-content>
+                </ion-card>
+            </ion-slide>
+<!--                <ion-card class="p1" (click)="openVisaPaiment()">-->
+<!--                    <ion-card-content>-->
+<!--                        <ion-icon name="card-outline"></ion-icon>-->
+<!--                        <b>VisaCard</b>-->
+<!--                    </ion-card-content>-->
+<!--                </ion-card>-->
+<!--                <ion-card class="p1" (click)="openPaypalPaiment()">-->
+<!--                    <ion-card-content>-->
+<!--                        <ion-icon name="logo-paypal"></ion-icon>-->
+<!--                        <b>Paypal</b>-->
+<!--                    </ion-card-content>-->
+<!--                </ion-card>-->
+<!--                <ion-card class="p1" (click)="openOrbusPaiment()">-->
+<!--                    <ion-card-content>-->
+<!--                        <ion-icon name="card-outline"></ion-icon>-->
+<!--                        <b>Orbus</b>-->
+<!--                    </ion-card-content>-->
+<!--                </ion-card>-->
+        </ion-slides>
+    </div>
+
+
+    <div *ngIf="mode == 'viewCarte'">
+        <form [formGroup]="demandeFormGroup">
+            <ion-card>
+                <div class="cInfoPaiement">
+                    <div class="cInfoPaiementInterne">
+                        <ion-list lines="none">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Plaque d'immatriculation</mat-label>
+                                <textarea class="cInputWei" matInput formControlName="numeroimmat" readonly></textarea>
+                            </mat-form-field>
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Pour</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="nom" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+                            <h2>Payer par carte</h2>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Id demande</mat-label>
+                                <input formControlName="id" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nom propritaire</mat-label>
+                                <input formControlName="nom" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Prenom</mat-label>
+                                <input formControlName="prenom" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Montant</mat-label>
+                                <input formControlName="montant" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                        </ion-list>
+                        <ion-button expand="block" color="monvert" class="boutonPayer" (click)="payer()">Payer vos frais</ion-button>
+                        <br>
+                    </div>
+                </div>
+            </ion-card>
+        </form>
+    </div>
+    <div *ngIf="mode == 'viewPaypal'">
+        <form [formGroup]="demandeFormGroup">
+            <ion-card>
+                <div class="cInfoPaiement">
+                    <div class="cInfoPaiementInterne">
+                        <ion-list lines="none">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Plaque d'immatriculation</mat-label>
+                                <textarea class="cInputWei" matInput formControlName="numeroimmat" readonly></textarea>
+                            </mat-form-field>
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Pour</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="nom" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+                            <h2>Payer par Paypal</h2>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Id demande</mat-label>
+                                <input formControlName="id" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nom propritaire</mat-label>
+                                <input formControlName="nom" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Prenom</mat-label>
+                                <input formControlName="prenom" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Montant</mat-label>
+                                <input formControlName="montant" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                        </ion-list>
+                        <ion-button expand="block" color="monvert" class="boutonPayer" (click)="payer()">Payer vos frais</ion-button>
+                        <br>
+                    </div>
+                </div>
+            </ion-card>
+        </form>
+    </div>
+    <div *ngIf="mode == 'viewOrbus'">
+        <form [formGroup]="demandeFormGroup">
+            <ion-card>
+                <div class="cInfoPaiement">
+                    <div class="cInfoPaiementInterne">
+                        <ion-list lines="none">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Plaque d'immatriculation</mat-label>
+                                <textarea class="cInputWei" matInput formControlName="numeroimmat" readonly></textarea>
+                            </mat-form-field>
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Pour</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="nom" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+                            <h2>Payer par Orbus</h2>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Id demande</mat-label>
+                                <input formControlName="id" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nom propritaire</mat-label>
+                                <input formControlName="nom" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Prenom</mat-label>
+                                <input formControlName="prenom" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Montant</mat-label>
+                                <input formControlName="montant" class="cInputWei" matInput type="text">
+                            </mat-form-field>
+                        </ion-list>
+                        <ion-button expand="block" color="monvert" class="boutonPayer" (click)="payer()">Payer vos frais</ion-button>
+                        <br>
+                    </div>
+                </div>
+            </ion-card>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <div *ngIf="mode == 'viewCarte'">-->
+<!--        <form [formGroup]="demandeFormGroup">-->
+<!--            <ion-card>-->
+<!--                <div class="cInfoPaiement">-->
+<!--                    <div class="cInfoPaiementInterne">-->
+<!--                        <ion-list lines="none">-->
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Plaque d'immatriculation</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="numeroimmat" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Pour</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="nom" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+<!--                            <h2>Payer par carte</h2>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Nom propritaire</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Numero carte</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Date expiration</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Numero cvv</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                        </ion-list>-->
+<!--                        <ion-button expand="block" color="monvert" class="boutonPayer">Payer vos frais</ion-button>-->
+<!--                        <br>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </ion-card>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <div *ngIf="mode == 'viewPaypal'">-->
+<!--        <form [formGroup]="demandeFormGroup">-->
+<!--            <ion-card>-->
+<!--                <div class="cInfoPaiement">-->
+<!--                    <div class="cInfoPaiementInterne">-->
+<!--                        <ion-list lines="none">-->
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Plaque d'immatriculation</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="numeroimmat" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Pour</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="nom" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+<!--                            <h2>Payer par Paypal</h2>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Nom propritaire</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Numero carte</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Date expiration</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Numero cvv</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                        </ion-list>-->
+<!--                        <ion-button expand="block" color="monvert" class="boutonPayer">Payer vos frais</ion-button>-->
+<!--                        <br>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </ion-card>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <div *ngIf="mode == 'viewOrbus'">-->
+<!--        <form [formGroup]="demandeFormGroup">-->
+<!--            <ion-card>-->
+<!--                <div class="cInfoPaiement">-->
+<!--                    <div class="cInfoPaiementInterne">-->
+<!--                        <ion-list lines="none">-->
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Plaque d'immatriculation</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="numeroimmat" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="fill">-->
+<!--                                <mat-label>Pour</mat-label>-->
+<!--                                <textarea class="cInputWei" matInput formControlName="nom" readonly></textarea>-->
+<!--                            </mat-form-field>-->
+<!--                            <h2>Payer par Orbus</h2>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Nom propritaire</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Numero carte</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Date expiration</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                            <mat-form-field appearance="outline">-->
+<!--                                <mat-label>Numero cvv</mat-label>-->
+<!--                                <input class="cInputWei" matInput type="text">-->
+<!--                            </mat-form-field>-->
+<!--                        </ion-list>-->
+<!--                        <ion-button expand="block" color="monvert" class="boutonPayer">Payer vos frais</ion-button>-->
+<!--                        <br>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </ion-card>-->
+<!--        </form>-->
+<!--    </div>-->
+</ion-content>

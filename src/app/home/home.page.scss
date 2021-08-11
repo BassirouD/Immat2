@@ -1,0 +1,132 @@
+.ionSizeSetting{
+  height: 23px;
+  width: 23px;
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+.ionSizeNotif{
+  height: 20px;
+  width: 20px;
+}
+
+.cMilieu{
+  padding-left: 10px;
+}
+
+.haut{
+  background: #f5f6f9;
+  width: 100% ;
+}
+
+.centre{
+  background: #f5f6f9;
+}
+
+.bas{
+  background: #f4f5f8;
+}
+
+.p1{
+  text-align: start;
+  width: 200px;
+  height: 85px;
+  border-radius: 3px;
+}
+
+.cTextPadd{
+  margin-left: 10px;
+}
+
+ion-card{
+  border-radius: 0px;
+  //height: 100px;
+}
+
+
+.cCarddemande{
+  height: 100px;
+  width: 137px;
+}
+
+.descBas2{
+  margin-top: 25px;
+}
+
+.descBas1{
+  margin-top: 8px;
+}
+
+.cWidget{
+  //margin-top: 50px;
+}
+
+ion-slides{
+ height: 50%;
+}
+
+ion-slides{
+  margin-bottom: 0px;
+}
+
+img{
+  height: 60px;
+  margin-left: 28px;
+  margin-bottom: 5px;
+}
+
+.card1{
+  background-color: #8c8c8c;
+}
+
+.card2{
+  background-color: #e0ac08;
+}
+
+.card4{
+  background-color: #ff4961;
+}
+
+.cSlide{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.cTitle{
+  margin-left: 10px;
+}
+
+ion-slides{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+.cBasDiv{
+    margin-top: 20px;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 150.33333%;
+}
+
+input{
+    width: 360px;
+}
+
+mat-form-field{
+    width: 350px;
+}
+
+.tailleBouton{
+    margin-left: 18px;
+    margin-right: 26px;
+}
+
+.titleDec{
+    margin-left: 10px;
+}

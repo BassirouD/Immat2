@@ -1,0 +1,134 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="monvert">
+        <ion-title>
+            Historique
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon name="notifications-outline" class="ionSizeNotif"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="goToSettings()">
+                <ion-icon name="cog-outline" class="ionSizeSetting" slot="end"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+
+    <div *ngIf="mode == 'list'">
+        <ion-searchbar placeholder="Cherchez un document"></ion-searchbar>
+
+        <ion-card>
+            <ion-card-header><h2>L'ensemble de mes plaques</h2></ion-card-header>
+            <ion-card-content>
+                <ion-list>
+                    <ion-item [matMenuTriggerFor]="menu" *ngFor="let dem of demandes?.data">
+
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col>
+                                    <ion-label>
+                                        <h4>{{dem.numeroimmat}}</h4>
+                                        <p>{{dem.marque}}</p>
+                                    </ion-label>
+                                </ion-col>
+                                <ion-col>
+                                    <span size="small" class="basDate">{{dem.datemiseencirculation}}</span>
+                                </ion-col>
+                                <ion-col class="text-info">
+                                    <!--                                <button (click)="alertButton()">-->
+                                    <span (click)="onPaiement(dem)" *ngIf="dem.status == 1" class="basPayer">Payer frais</span>
+                                    <!--                                </button>-->
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+                        <!--                    <ion-buttons slot="end">-->
+                        <!--                        <ion-button color="medium">-->
+                        <!--                            <ion-icon [matMenuTriggerFor]="menu" slot="icon-only" md="ellipsis-vertical-outline" ios="ellipsis-horizontal-outline">-->
+
+                        <!--                            </ion-icon>-->
+                        <!--                        </ion-button>-->
+                        <!--                    </ion-buttons>-->
+                        <!--                    <span mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">-->
+                        <!--                        <mat-icon>more_vert</mat-icon>-->
+                        <!--                    </span>-->
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <button *ngIf="dem.status == 2 " mat-menu-item>
+                                <mat-icon>history</mat-icon>
+                                <span>En cours de traitement</span>
+                            </button>
+                            <button *ngIf="dem.status == 7" mat-menu-item>
+                                <mat-icon> thumb_down</mat-icon>
+                                <span>Rejetée</span>
+                            </button>
+                            <button *ngIf="dem.status == 5" mat-menu-item>
+                                <mat-icon>thumb_up</mat-icon>
+                                <span>Validée</span>
+                            </button>
+<!--                            <button (click)="onPaiement(dem)" *ngIf="dem.status == 1" mat-menu-item>-->
+<!--                                <mat-icon>payment</mat-icon>-->
+<!--                                <span>A payer</span>-->
+<!--                            </button>-->
+                            <!--                        <button mat-menu-item>-->
+                            <!--                            <mat-icon>hourglass_empty</mat-icon>-->
+                            <!--                            <span>En cours</span>-->
+                            <!--                        </button>-->
+                            <button (click)="openDetail(dem)" mat-menu-item >
+                                <mat-icon>visibility</mat-icon>
+                                <span>Visualiser</span>
+                            </button>
+                            <button mat-menu-item (click)="onDeleteDemande(dem)">
+                                <mat-icon>delete</mat-icon>
+                                <span>Supprimer</span>
+                            </button>
+                        </mat-menu>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <div *ngIf="mode == 'detail'">
+        <div>
+            <ion-card>
+                <div class="cBasDiv">
+                    <ion-list lines="none">
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nom</mat-label>
+                                <input matInput type="text" ngModel [(ngModel)]="currentDemande.nom" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Marque</mat-label>
+                                <input matInput type="text" ngModel [(ngModel)]="currentDemande.marque" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Puissance</mat-label>
+                                <input matInput type="text" ngModel [(ngModel)]="currentDemande.puissance" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                        <ion-item>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Couleur</mat-label>
+                                <input matInput type="text" ngModel [(ngModel)]="currentDemande.couleur" readonly>
+                            </mat-form-field>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <ion-button color="monvert" class="tailleBouton" expand="full" (click)="closeModal()">Close</ion-button>
+            </ion-card>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,135 @@
+<ion-header>
+    <ion-toolbar color="monvert">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+    <div *ngIf="phase === false">
+        <div class="element-center">
+            <!--            <ion-grid>-->
+            <!--                <ion-row>-->
+            <ion-col>
+
+                <h1 class="ion-text-center cHTitle text-white">Reinitialiser votre mot de passe</h1>
+
+                    <div class="cBLarge">
+                        <div class="cWhite cBass">
+                            <br>
+                            <div color="light" class="input-group">
+                                <ion-item lines="none">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Email</mat-label>
+                                        <input matInput type="text" class="cInputWei">
+                                    </mat-form-field>
+                                </ion-item>
+
+                            </div>
+
+
+                            <div class="cBasButton2">
+                                <ion-button  (click)="onSuivant()" color="monvert" expand="block" class="ion-margin-start ion-margin-end ion-margin-bottom" type="submit">
+                                    Reinitialiser
+                                </ion-button>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+            </ion-col>
+            <!--                </ion-row>-->
+            <!--            </ion-grid>-->
+        </div>
+    </div>
+
+
+    <div *ngIf="phase === true">
+        <div class="element-center">
+            <!--            <ion-grid>-->
+            <!--                <ion-row>-->
+            <ion-col>
+
+                <h1 class="ion-text-center cHTitle text-white">Reinitialiser votre mot de passe</h1>
+
+                <div class="cBLarge">
+                    <div class="cWhite cBass">
+                        <br>
+                        <div color="light" class="input-group">
+                            <ion-item lines="none">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nouveau mot de passe</mat-label>
+                                    <input matInput type="email" class="cInputWei">
+                                </mat-form-field>
+                            </ion-item>
+                            <ion-item lines="none">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Confirmation</mat-label>
+                                    <input matInput type="email" class="cInputWei">
+                                </mat-form-field>
+                            </ion-item>
+
+                        </div>
+
+
+                        <div class="cBasButton2">
+                            <ion-button  (click)="onSuivant()" color="monvert" expand="block" class="ion-margin-start ion-margin-end ion-margin-bottom" type="submit">
+                                Reinitialiser
+                            </ion-button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </ion-col>
+            <!--                </ion-row>-->
+            <!--            </ion-grid>-->
+        </div>
+    </div>
+
+<!--    <div class="cBas">-->
+
+<!--        <div *ngIf="phase === false">-->
+<!--            <h1 class="cTitle text-white">Reinitialiser votre mot de passe</h1>-->
+<!--            <div color="light" class="cDivlarge">-->
+<!--                <br>-->
+<!--                <ion-item lines="none">-->
+<!--                    <mat-form-field appearance="outline">-->
+<!--                        <mat-label>Email</mat-label>-->
+<!--                        <input matInput type="email" class="cInputWei">-->
+
+<!--                    </mat-form-field>-->
+
+<!--                </ion-item>-->
+<!--                <div class="align-content-center">-->
+<!--                    <ion-button (click)="onSuivant()" class="cBasButton" expand="block"  color="monvert">Reinitialiser</ion-button>-->
+<!--                </div>-->
+<!--                <br>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div *ngIf="phase === true">-->
+<!--            <div color="light" class="auth-card ion-margin cDivlarge">-->
+<!--                <br>-->
+<!--                <ion-item lines="none">-->
+<!--                    <mat-form-field appearance="outline">-->
+<!--                        <mat-label>Nouveau mot de passe</mat-label>-->
+<!--                        <input matInput type="email" class="cInputWei">-->
+<!--                    </mat-form-field>-->
+<!--                </ion-item>-->
+<!--                <ion-item lines="none">-->
+<!--                    <mat-form-field appearance="outline">-->
+<!--                        <mat-label>Confirmation</mat-label>-->
+<!--                        <input matInput type="email" class="cInputWei">-->
+<!--                    </mat-form-field>-->
+<!--                </ion-item>-->
+<!--                <ion-button class="cBasButton" expand="block" color="monvert">Reinitialiser</ion-button>-->
+<!--                <br>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+</ion-content>
